@@ -1,0 +1,46 @@
+﻿@model prima.Models.PanouSolar
+@{
+    ViewBag.Title = "Adaugare Panou Solar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("New", "PanouSolar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("NumePanou", "Numele panoului:")
+    <br />
+    @Html.TextBoxFor(b => b.NumePanou, null, new { placeholder = "Scrieti numele panoului", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.NumePanou, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Latime", "Latimea panoului:")
+    <br />
+    @Html.TextBoxFor(b => b.Latime, null, new { placeholder = "Scrieti latimea panoului", @class = "formcontrol" }) <b>[mm]</b>
+    @Html.ValidationMessageFor(b => b.Latime, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Inaltime", "Inaltimea panoului:")
+    <br />
+    @Html.TextBoxFor(b => b.Inaltime, null, new { placeholder = "Scrieti inaltimea panoului", @class = "formcontrol" }) <b>[mm]</b>
+    @Html.ValidationMessageFor(b => b.Inaltime, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("PutereMaxima", "Puterea maxima a panoului:")
+    <br />
+    @Html.TextBoxFor(b => b.PutereMaxima, null, new { placeholder = "Scrieti puterea maxima a panoului", @class = "formcontrol" }) <b>[W]</b>
+    @Html.ValidationMessageFor(b => b.PutereMaxima, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("CostPanou", "Pretul panoului:")
+    <br />
+    @Html.TextBoxFor(b => b.CostPanou, null, new { placeholder = "Scrieti pretul panoului", @class = "formcontrol" }) <b>RON</b>
+    @Html.ValidationMessageFor(b => b.CostPanou, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("Imagine panou solar:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" required />
+        </div>
+        @Html.ValidationMessageFor(a => a.ImagePath, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit">Adauga panou</button>
+
+}

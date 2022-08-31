@@ -1,0 +1,133 @@
+﻿<style>
+    .tabel {
+        width: 70%;
+        height: 40%;
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+        background-color: #2b2d33;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .col2 {
+
+        background-size: cover;
+        border-radius: 0px 10px 10px 0px;
+    }
+    .col1{
+        width:60%;
+        
+    }
+    .col2 {
+        width: 40%;
+        
+    }
+    .col1 {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    .butoane-judet{
+        display:flex;
+    }
+    .titlu-page {
+        font-size: 5.5rem;
+        line-height: 1.13;
+        font-weight: 900;
+        color: white;
+        margin-top:0px;
+    }
+    .text_p{
+        color:white;
+        margin-top:20px;
+        margin-bottom:20px;
+        font-weight:500;
+        font-size:1.3em;
+    }
+
+    .btn {
+        padding: 0;
+        line-height: normal;
+        background-color: #037080;
+        cursor: pointer;
+        font-size: 1.2em;
+        line-height: 1.5;
+        font-weight: 600;
+        padding: 5px 8px;
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        border: 0.125rem solid transparent;
+        vertical-align: middle;
+    }
+</style>
+        
+
+
+
+
+@model prima.Models.Calcule
+@{
+    ViewBag.Title = "Detalii judet";
+}
+
+
+<div class="tabel">
+    <div class="col1">
+        <h2 class="titlu-page">Ati ales judetul: @ViewBag.judet.Nume</h2>
+        <p class="text_p">
+            Radiatia solara anuala in acest judet este: @ViewBag.judet.RadiatieSolara [kWh/m²]
+        </p>
+
+        <div class="butoane-judet">
+            @using (Html.BeginForm(actionName: "Panouri", controllerName: "Calcul", method: FormMethod.Post))
+            {
+                @Html.HiddenFor(b => b.JudetId)
+
+                <button class="btn btn-primary" style="margin-right:10px"
+                        type="submit">
+                    Catre selectarea panoului dorit
+                </button>
+            }
+
+            @if (User.IsInRole("Admin"))
+
+            {
+                using (Html.BeginForm(actionName: "EditJudet", controllerName: "Judete", method: FormMethod.Get))
+                {
+                    @Html.HiddenFor(b => b.JudetId)
+                    <button class="btn btn-primary" style="margin-right:10px"
+                            type="submit">
+                        Editare judet
+                    </button>
+                }
+
+                using (Html.BeginForm(actionName: "Delete", controllerName: "Judete", method: FormMethod.Post))
+                {
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    @Html.HiddenFor(b => b.JudetId)
+                    <button class="btn btn-primary" style="margin-right:10px"
+                            type="submit">
+                        Stergere judet
+                    </button>
+                }
+
+            }
+
+        </div>
+    </div>
+
+    <div class="col2">
+        <img src="@Url.Content(ViewBag.judet.ImagePath)" alt="Sample Image" width="420px" height="300px"  />
+    </div>
+</div>

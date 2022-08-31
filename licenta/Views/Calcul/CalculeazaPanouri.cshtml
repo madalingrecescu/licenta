@@ -1,0 +1,94 @@
+﻿
+<style>
+    .intreg {
+        align-self: center;
+        display: table;
+        width: 100%;
+        padding: 5px;
+        margin-top: 50px;
+    }
+
+        .intreg:before, .coloana:after {
+            content: "";
+        }
+
+        .intreg:after {
+            clear: both;
+        }
+
+    .coloana {
+        float: left;
+        width: 50%;
+    }
+
+    .box {
+        border: 1px solid #DDD;
+        width: 450px;
+        height: 426px;
+        margin: 0 auto;
+        border-color: black;
+        border: solid;
+        border-style: solid;
+        border-width: thin;
+        box-shadow: 0 10px 15px 0;
+    }
+
+    .coloana:first-child .box {
+        margin-left: 0;
+    }
+
+    .coloana:last-child .box {
+        margin-right: 0;
+    }
+
+    .titlu {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .text {
+        font-weight: 525;
+        font-size: 1.3em;
+        margin-top: 70px;
+        margin-bottom: 40px;
+        margin-left: 20px;
+    }
+    }
+</style>
+
+
+
+@{
+    ViewBag.Title = "Rezultat";
+}
+
+
+<div class="intreg">
+    <div class="coloana">
+        <div class="box">
+            <h3 class="titlu">Date introduse</h3>
+            <p class="text">
+                ⋅Judetul selectat: @ViewBag.Locatie <br /><br />
+                ⋅Energia necesara introdusa: @ViewBag.EnergieNecesara [kWh] <br /><br />
+                ⋅Unghiul la care vor fi plasate panourile: @ViewBag.Unghi [°]
+
+            </p>
+        </div>
+    </div>
+    <div class="coloana">
+        <div class="box">
+            <h3 class="titlu">Date rezultate</h3>
+            <p class="text">
+                ⋅Va fi nevoie de @ViewBag.NumarPanouri panouri solare.
+                <br /><br />
+                ⋅Energia produsa de catre panouri  este de @ViewBag.rezultat [kWh] ,  adica cu @ViewBag.Procentaj % mai mare decat cea dorita
+                <br /><br />
+                ⋅Costul total al panourilor este de @ViewBag.CostTotal RON
+                <br /><br />
+                ⋅Aria totala a panourilor este de @ViewBag.ArieNecesara [m²]
+            </p>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,89 @@
+﻿<style>
+    .titlu {
+        font-weight: 600;
+    }
+
+    .caseta {
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        margin-top: 105px;
+        padding: inherit;
+        max-width: 429px;
+        min-height: 308px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        border-color: black;
+        border: solid;
+        border-style: solid;
+        border-width: thin;
+        box-shadow: 0 6px 10px 0;
+    }
+
+    .text {
+        font-weight: 500;
+        font-size: 1.2em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .text-mic {
+        font-size: 0.6em;
+    }
+
+    .btn {
+        padding: 0;
+        line-height: normal;
+        background-color: #037080;
+        cursor: pointer;
+        font-size: 1em;
+        line-height: 1.5;
+        font-weight: 600;
+        padding: 5px 8px;
+        position: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        border: 0.125rem solid transparent;
+        vertical-align: middle;
+    }
+
+    .
+</style>
+
+
+@model prima.Models.Calcule
+@{
+    ViewBag.Title = "Calculator pentru panuri";
+}
+
+
+<div class="caseta">
+    <h2 class="titlu">Introduceti datele necesare</h2>
+
+    <p class="text">
+        Energie necesara:
+    </p>
+    @using (Html.BeginForm(actionName: "CalculeazaPanouri", controllerName: "Calcul", method: FormMethod.Get))
+    {
+
+        @Html.HiddenFor(b => b.PanouId)
+        @Html.HiddenFor(b => b.JudetId)
+        @Html.TextBoxFor(b => b.EnergieNecesara, null, new { placeholder = "Scrieti de cata energie aveti nevoie", @class = "formcontrol" }) <b>[kWh]</b>
+        @Html.ValidationMessageFor(b => b.EnergieNecesara, "", new { @class = "text-danger" })
+
+        <p class="text">
+            Unghiul la care vor fi plasate panourile solare <br />
+        </p> // din studiul pentru bucuresti
+
+        @Html.TextBoxFor(b => b.Unghi, null, new { placeholder = "Scrieti Unghiul la care este inclinat acoperisul", @class = "formcontrol" }) <b style="font-size:150%"> [°]</b>
+        @Html.ValidationMessageFor(b => b.Unghi, "", new { @class = "text-danger" })
+<p class="text-mic"> *Unghiul optim pentru Romania este de 37°</p>
+
+        <button class="btn btn-primary" type="submit">Calculeaza</button>
+
+    }
+</div>

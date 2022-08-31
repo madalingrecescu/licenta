@@ -1,0 +1,97 @@
+﻿<style>
+    .titlu {
+        font-size: 5.5rem;
+        font-weight: 600;
+        margin-left: 275px;
+    }
+
+    .panel {
+        background-color: #2b2d33;
+    }
+
+    .text {
+        color: white;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 0;
+        line-height: normal;
+        background-color: #037080;
+        cursor: pointer;
+        font-size: 1em;
+        line-height: 1.5;
+        font-weight: 600;
+        padding: 5px 8px;
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        border: 0.125rem solid transparent;
+        vertical-align: middle;
+    }
+</style>
+
+
+
+@{
+    ViewBag.Title = "Panouri";
+}
+
+<div class="container">
+    @foreach (var panou in Model)
+    {
+        <div class="panel" style="margin-top:50px">
+            <div class="panel-body">
+                <div class="grid-item-details-competitor">
+                    <img src="@Url.Content(panou.ImagePath)" alt="Sample Image" width="200" height="200" align="right" />
+                </div>
+                <p class="text">
+                    @panou.NumePanou
+                    <br />
+                    @{panou.RandamentPanou = Convert.ToDouble(String.Format("{0:0.00}", panou.RandamentPanou)); }
+                    ⋅ Randament:@panou.RandamentPanou %
+                    <br />
+                    ⋅ Inaltime:@panou.Inaltime [mm]
+                    <br />
+                    ⋅ Latime: @panou.Latime [mm]
+                    <br />
+                    ⋅ Pret: @panou.CostPanou RON
+                </p>
+                <div class="butoane">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        using (Html.BeginForm(actionName: "Edit", controllerName: "PanouSolar", method: FormMethod.Get,
+                    routeValues: new { id = panou.PanouId }))
+                        {
+                            <button class="btn btn-primary"
+                                    style="margin-right:5px"
+                                    type="submit">
+                                Editare
+                            </button>
+                        }
+                        using (Html.BeginForm(actionName: "Delete", controllerName: "PanouSolar", method: FormMethod.Post,
+                        routeValues: new { id = panou.PanouId }))
+                        {
+                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                            <button class="btn btn-primary"
+                                    style="margin-right:5px"
+                                    type="submit">
+                                Stergere
+                            </button>
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Adauga un panou solar nou", "New")
+

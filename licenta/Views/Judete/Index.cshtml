@@ -1,0 +1,42 @@
+﻿@model prima.Models.Judet
+@{
+    ViewBag.Title = "Judete";
+}
+
+<h2 align="center" ;font: bold; style="font-size:150%"> Haideti sa incepem</h2>
+
+    <div align="center" style="font-size:135%">
+        @using (Html.BeginForm(actionName: "SelectJudet", controllerName: "Calcul", method: FormMethod.Post))
+        {
+
+            @Html.DropDownListFor(m => m.JudetId, new SelectList(ViewBag.judete, "JudetId", "Nume"), "Selecteaza judetul")
+            {
+        <button style="margin-right:5px"
+                type="submit"
+                class="btn btn-primary btn-sm">
+            Selecteaza
+        </button>
+            }
+
+        }
+        @if (ViewBag.eroare == "1")
+        {
+            @Html.ValidationMessageFor(m => m.JudetId, "Trebuie sa selectati un judet!", new { @class = "text-danger" })
+        }
+    </div>
+
+<br />
+<div align="center">
+    
+
+    <img src="/Images/harta_potential_micit.png" alt="Sample Photo" width="750" height="495" align="middle" /> <br />
+    Potentialul de putere fotovoltaica pentru Romania 
+</div>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Crearea unui judet nou", "NewJudet", "Judete")
+    }
+    <br />
+    <br />
+    @Html.ActionLink(" Lista de panouri solare", "PanouriSolare", "PanouSolar")
+

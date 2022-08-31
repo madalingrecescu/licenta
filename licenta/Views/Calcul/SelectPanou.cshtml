@@ -1,0 +1,45 @@
+﻿<style>
+  .btn {
+        padding: 0;
+        line-height: normal;
+        background-color: #037080;
+        cursor: pointer;
+        font-size: 2em;
+        line-height: 1.5;
+        font-weight: 600;
+        padding: 5px 8px;
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        border: 0.125rem solid transparent;
+        vertical-align: middle;
+    }
+</style>
+@model prima.Models.Calcule
+@{
+    ViewBag.Title = "SelectPanou";
+}
+
+<h2 style="font-size: 4.5rem; font-weight: 600;" align="center">Alege tipul de calculator pe care doresti sa il folosesti</h2>
+<br />
+<br />
+<br />
+@using (Html.BeginForm(actionName: "CalculatorCataEnergieProduceAcoperisul", controllerName: "Calcul", method: FormMethod.Get))
+{
+    @Html.HiddenFor(b => b.PanouId)
+    @Html.HiddenFor(b => b.JudetId)
+
+    <button class="btn btn-primary  btn-lg btn-block" type="submit">Calculeaza potentialul energetic al acoperisului dumneavoastra</button>
+}
+<br />
+<br />
+@using (Html.BeginForm(actionName: "CalculatorDeCatePanouriEsteNevoie", controllerName: "Calcul", method: FormMethod.Get))
+{
+    @Html.HiddenFor(b => b.PanouId)
+    @Html.HiddenFor(b => b.JudetId)
+
+    <button class="btn btn-primary btn-block btn-lg" type="submit">Calculeaza de cate panouri solare ai nevoie in functie de energia necesara</button>
+}

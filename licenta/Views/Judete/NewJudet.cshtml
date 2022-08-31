@@ -1,0 +1,146 @@
+﻿@model prima.Models.Judet
+@{
+    ViewBag.Title = "Adaugare judet";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("NewJudet", "Judete", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <br />
+    @Html.Label("Nume", "Nume Judet:")
+    <br />
+    @Html.TextBoxFor(b => b.Nume, null, new { placeholder = "Scrieti numele judetului", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Ianuarie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraIanuarie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraIanuarie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Februarie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraFebruarie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraFebruarie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Martie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraMartie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraMartie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Aprilie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraAprilie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraAprilie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Mai</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraMai, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraMai, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Iunie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraIunie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraIunie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Iulie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraIulie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraIulie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna August</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraAugust, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraAugust, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Septembrie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraSeptembrie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraSeptembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Octombrie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraOctombrie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraOctombrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Noiembrie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraNoiembrie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraNoiembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Radiatia solara in luna Decembrie</b></p>
+    @Html.TextBoxFor(b => b.RadiatieSolaraDecembrie, null, new { placeholder = "Scrieti radiatia solara", @class = "formcontrol" }) <b>[kWh/m²]</b>
+    @Html.ValidationMessageFor(b => b.RadiatieSolaraDecembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Ianuarie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieIanuarie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieIanuarie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Februarie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieFebruarie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieFebruarie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Martie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieMartie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieMartie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Aprilie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieAprilie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieAprilie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Mai</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieMai, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieMai, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie in maxima luna Iunie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieIunie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieIunie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie in maxima luna Iulie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieIulie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieIulie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie in maxima luna August</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieAugust, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieAugust, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Septembrie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieSeptembrie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieSeptembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Octombrie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieOctombrie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieOctombrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Noiembrie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieNoiembrie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieNoiembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <p><b>Temperatura medie maxima in luna Decembrie</b></p>
+    @Html.TextBoxFor(b => b.TemperaturaMedieDecembrie, null, new { placeholder = "Scrieti temperatura medie maxima", @class = "formcontrol" }) <b style="font-size:125%"> [°C]</b>
+    @Html.ValidationMessageFor(b => b.TemperaturaMedieDecembrie, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("Imagine judet:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" required />
+        </div>
+        @Html.ValidationMessageFor(a => a.ImagePath, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit">Adauga judet</button>
+}
